@@ -20,7 +20,7 @@
         <form @submit.prevent="submitWalkRequest">
           <div class="mb-3">
             <label class="form-label">Select Your Dog</label>
-            <select v-model="form.selectedDog" class="form-control" required>
+            <select v-model="form.dog_id" class="form-control" required>
               <option disabled value="">Select Your Dog</option>
               <option v-for="dog in dogs" :key="dog.name">
                 {{ dog.name }}
@@ -76,7 +76,6 @@
     createApp({
       setup() {
         const form = ref({
-          selectedDog: '',
           dog_id: '',
           requested_time: '',
           duration_minutes: '',

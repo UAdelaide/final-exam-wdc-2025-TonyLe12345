@@ -5,7 +5,7 @@ var db = require('../db');
 router.get('/api/dogs', async (req, res) => {
   const [rows] = await db.query(`
     SELECT
-        Dogs.name,
+        Dogs.name AS dog_name,
         Dogs.size,
         Users.username AS owner_username
     FROM

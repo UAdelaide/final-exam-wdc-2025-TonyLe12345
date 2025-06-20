@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
   }
 
   if (req.session.user.role === 'admin') {
-    return res.redirect('/admin');
+    return res.redirect('/owner');
   }
 
   res.render('dashboard', {

@@ -87,7 +87,7 @@ Sleep deprivation causes all sorts of challenges and problems. When one doesn’
 Finding the truth wouldn't be easy, that's for sure. Then there was the question of whether or not Jane really wanted to know the truth. That's the thing that bothered her most. It wasn't the difficulty of actually finding out what happened that was the obstacle, but having to live with that information once it was found.
 The rain and wind abruptly stopped, but the sky still had the gray swirls of storms in the distance. Dave knew this feeling all too well. The calm before the storm. He only had a limited amount of time before all Hell broke loose, but he stopped to admire the calmness. Maybe it would be different this time, he thought, with the knowledge deep within that it wouldn't.
     </div>
-    <button @click="showButton"> a button </button>
+    <button @click="showButton = true"> a button </button>
     <button @click="getDog"> a button </button>
     <div v-if="showPicture">
         <img src="dogPicture" alt="supposed to be a image of a Dog did you press the other button?" style="max-width:200px; max-height:100px">
@@ -101,7 +101,7 @@ The rain and wind abruptly stopped, but the sky still had the gray swirls of sto
       data() {
         return {
             dogPicture: '',
-            showPicture: false
+            showButton: false
             showPicture: false
         };
       },

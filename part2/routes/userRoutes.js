@@ -78,7 +78,7 @@ router.get('/dogs', async (req, res) => {
   if(!req.session) {
 
   } else {
-    res.status(201).json({ walkerID: result });
+    res.status(201).json({ walkerID: req.session.user.user_id });
   }
 });
 

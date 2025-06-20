@@ -60,7 +60,7 @@
     </form>
     <h2 class="lead">All Registered Dogs</p>
 
-      <table class = "leaderboard-table">
+      <table >
           <thead>
               <tr>
                   <th>🏅 Rank</th>
@@ -79,7 +79,7 @@
                           <%= row.username %>
                       </td>
                       <td>$<%= Number(row.total_trade_value).toFixed(2) %>
-                      </td> 
+                      </td>
                   </tr>
                   <% }) %>
           </tbody>

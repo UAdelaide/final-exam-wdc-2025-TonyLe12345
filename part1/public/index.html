@@ -31,7 +31,9 @@
 </head>
 <body>
   <div id="app">
-    <button v-if="showButton" @click="showPicture = true"> Just a Button </button>
+    <div v-if="showButton">
+        <button @click="showPicture = true"> Just a Button </button>
+    </div>
     <h1>
         The Image you are lookings for is very far away
     </h1>

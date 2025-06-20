@@ -70,7 +70,7 @@ router.post('/dogs', async (req, res) => {
 
     res.status(201).json({ message: result });
   } catch (error) {
-    res.status(500).json({ error: 'Registration failed' });
+    res.status(500).json({ error: 'Failed to get the dogs' });
   }
 });
 

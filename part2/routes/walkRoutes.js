@@ -3,7 +3,9 @@ const router = express.Router();
 const db = require('../models/db');
 
 router.use(function(req, res, next) {
-  
+  if (!req.session.user) {
+    return res.redirect('/');
+  }
   next();
 });
 

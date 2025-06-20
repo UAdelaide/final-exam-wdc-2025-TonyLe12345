@@ -28,7 +28,7 @@ router.post('/logOut', function (req, res) {
   });
 });
 
-router.get('api/dogs', async (req, res) => {
+router.get('/api/dogs', async (req, res) => {
   try {
     const [rows] = await db.query(`
         SELECT

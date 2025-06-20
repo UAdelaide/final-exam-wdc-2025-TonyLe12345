@@ -100,7 +100,7 @@
             },
 
             async dogData() {
-              const res = await fetch('/login', {
+              const res = await fetch('/api/dogs', {
                   method: 'POST',
                   credentials: 'include', // send cookies for session
                   headers: { 'Content-Type': 'application/json' },

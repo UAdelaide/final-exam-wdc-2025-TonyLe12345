@@ -118,7 +118,7 @@
 
         async function getDogs() {
           try {
-            const res = await fetch('/api/walks', {
+            const res = await fetch('/api/walks/dogs', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify(form.value)

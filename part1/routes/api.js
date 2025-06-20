@@ -56,7 +56,7 @@ router.get('/api/walkers/summary', async (req, res) => {
         JOIN WalkRatings
         ON Users.user_id = WalkRatings.walker_id
         JOIN WalkRequests
-        ON WalkApplications.request_id = WalkRequests.request_id
+        ON WalkRatings.request_id = WalkRequests.request_id
         AND WalkRequests.status = 'completed'
         WHERE Users.role = 'walker'
         GROUP BY Users.username;

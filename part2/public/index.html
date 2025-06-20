@@ -98,9 +98,6 @@
           dogs:[]
         };
       },
-      async mounted() {
-        
-      },
       methods: {
 
             async login() {
@@ -142,6 +139,10 @@
                   console.error('Error fetching Dog', error);
               }
             }
+      }
+      mounted() {
+    this.dogData();
+    this.getDog();
       }
     }).mount('#app');
   </script>

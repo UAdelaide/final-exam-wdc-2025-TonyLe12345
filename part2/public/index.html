@@ -60,7 +60,30 @@
     </form>
     <h2 class="lead">All Registered Dogs</p>
 
-      
+      <table class = "leaderboard-table">
+                <thead>
+                    <tr>
+                        <th>🏅 Rank</th>
+                        <th>👤 Username</th>
+                        <th>💰 Total Trade Value ($)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- fetch users -->
+                    <% leaderboard.forEach((row, index)=> { %>
+                        <tr class="<%= user && user.username === row.username ? 'highlight-user' : '' %>">
+                            <td>
+                                <%= index+1 %>
+                            </td> <!-- rank -->
+                            <td>
+                                <%= row.username %>
+                            </td> <!-- username -->
+                            <td>$<%= Number(row.total_trade_value).toFixed(2) %>
+                            </td> <!-- trade value rounded to two decimal places-->
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>
     <img v-bind:src="dogPicture" alt="This is a photo which I won't describe" style="max-width:200px; max-height:100px">
 
     <a href="owner-dashboard.html" class="btn btn-outline-primary me-2">Owner Dashboard</a>

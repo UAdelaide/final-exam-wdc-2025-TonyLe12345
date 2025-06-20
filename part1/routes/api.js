@@ -4,10 +4,15 @@ var db = require('../db');
 
 router.get('/api/dogs', async (req, res) => {
   const [rows] = await db.query(`
-    SELECT bl.BookID, bi.Title, u.Name AS SellerName, bl.SellerID
-    FROM BookListings bl
-    JOIN BookInfo bi ON bl.BookInfoID = bi.BookInfoID
-    JOIN Users u ON bl.SellerID = u.UserID
+    SELECT
+    Dogs.name AS dog_name,
+    Dogs.size,
+    Users.username AS owner_username
+    FROM
+        Dogs
+    JOIN
+        Users ON Dogs.owner_id = Users.user_id;
+
   `);
   res.json(rows);
 });

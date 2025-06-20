@@ -3,6 +3,10 @@ const router = express.Router();
 const db = require('../models/db');
 
 router.get('/', async (req, res) => {
+  if (!req.session.user) {
+    return res.redirect('/index.html');
+  }
+
   if (req.session.user.role === 'walker') {
     return res.redirect('/walker-dashboard.html');
   }

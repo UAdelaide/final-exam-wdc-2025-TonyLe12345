@@ -65,7 +65,7 @@ router.post('/login', async (req, res) => {
 router.get('/dogs', async (req, res) => {
   try {
     const [result] = await db.query(`
-      SELECT name FROM Dogs WHERE owner_id = ?
+      SELECT dog_id, name FROM Dogs WHERE owner_id = ?
     `, [req.session.user.user_id]);
 
     res.status(201).json({ dogs: result });

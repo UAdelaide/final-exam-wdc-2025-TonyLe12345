@@ -54,7 +54,7 @@ router.get('/api/walkers/summary', async (req, res) => {
         COUNT(DISTINCT WalkRatings.request_id) AS completed_walks
         FROM WalkRatings
         JOIN Users
-        ON Users.user_id = WalkRatings.walker_id
+        ON WalkRatings.walker_id = Users.user_id
         JOIN WalkRequests
         ON WalkRatings.request_id = WalkRequests.request_id
         WHERE Users.role = 'walker' AND WalkRequests.status = 'completed'

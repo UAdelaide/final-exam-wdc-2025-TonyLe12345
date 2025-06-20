@@ -83,7 +83,7 @@
             async login() {
               const res = await fetch('/login', {
                   method: 'POST',
-                  credentials: 'include', // send cookies for session
+                  credentials: 'include', 
                   headers: { 'Content-Type': 'application/json' },
                   body: JSON.stringify({ username: this.username, password: this.password })
                 });

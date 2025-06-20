@@ -74,12 +74,12 @@
                   <tr class="<%= user && user.username === row.username ? 'highlight-user' : '' %>">
                       <td>
                           <%= index+1 %>
-                      </td> 
+                      </td>
                       <td>
                           <%= row.username %>
-                      </td> <!-- username -->
+                      </td>
                       <td>$<%= Number(row.total_trade_value).toFixed(2) %>
-                      </td> <!-- trade value rounded to two decimal places-->
+                      </td> 
                   </tr>
                   <% }) %>
           </tbody>

@@ -39,7 +39,7 @@ router.get('/me', (req, res) => {
   if (!req.session.user) {
     return res.status(401).json({ error: 'Not logged in' });
   }
-  res.json(req.session.user.user_id);
+  res.json(req.session.user.user);
 });
 
 // POST login (dummy version)

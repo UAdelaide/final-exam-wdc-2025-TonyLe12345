@@ -62,11 +62,11 @@ router.post('/login', async (req, res) => {
   }
 });
 
-router.post('/dogs', async (req, res) => {
+router.get('/dogs', async (req, res) => {
   try {
     const [result] = await db.query(`
       'SELECT name FROM Dogs WHERE owner_id = ?'
-    `, [session.user_id]);
+    `, [req.session.user.user_id]);
 
     res.status(201).json({ message: result });
   } catch (error) {

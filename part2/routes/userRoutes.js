@@ -66,7 +66,7 @@ router.post('/dogs', async (req, res) => {
   try {
     const [result] = await db.query(`
       'SELECT name FROM Dogs WHERE owner_id = ?'
-    `, [username, email, password, role]);
+    `, [session.ownerId]);
 
     res.status(201).json({ message: 'User registered', user_id: result.insertId });
   } catch (error) {

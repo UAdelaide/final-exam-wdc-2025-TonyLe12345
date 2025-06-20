@@ -88,9 +88,15 @@
                 alert(data.message || 'LogOut failed');
               }
         }
-        
-        async function getCurrentUser() {
 
+        async function getCurrentUser() {
+          try {
+            const res = await fetch('/api/walks');
+            if (!res.ok) throw new Error('Failed to load walk requests');
+            walks.value = await res.json();
+          } catch (err) {
+            error.value = err.message;
+          }
         }
 
         onMounted(() => {

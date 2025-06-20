@@ -17,11 +17,25 @@ router.get('/dogs', async (req, res) => {
 });
 
 router.get('/walkrequests/open', async (req, res) => {
-  const [rows] = await db.query(`
-    SELECT
-  `);
-  res.json(rows);
+  try {
+    const [rows] = await db.query(`
+      SELECT
+        Dogs.name AS dog_name,
+        WalkRequests.requested_time,
+        WalkRequests.location,
+        Users.username AS owner_username
+      FROM WalkRequests
+      JOIN Dogs ON WalkRequests.dog_id = Dogs.dog_id
+      JOIN Users ON Dogs.owner_id = Users.user_id
+      WHERE WalkRequests.status = 'open';
+    `);
+    res.json(rows);
+  } catch (error) {
+    console.error(err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
 });
+
 
 router.get('/walkers/summary', async (req, res) => {
   const [rows] = await db.query(`

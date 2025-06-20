@@ -71,18 +71,16 @@
               </tr>
           </thead>
           <tbody>
-
-                  <tr class="<%= user && user.username === row.username ? 'highlight-user' : '' %>">
-                      <td>
-                          <%= index+1 %>
-                      </td>
-                      <td>
-                          <%= row.username %>
-                      </td>
-                      <td>$<%= Number(row.total_trade_value).toFixed(2) %>
-                      </td>
-                  </tr>
-                  <% }) %>
+            <tr v-for>
+                <td>
+                    <%= index+1 %>
+                </td>
+                <td>
+                    <%= row.username %>
+                </td>
+                <td>$<%= Number(row.total_trade_value).toFixed(2) %>
+                </td>
+            </tr>
           </tbody>
       </table>
     <img v-bind:src="dogPicture" alt="This is a photo which I won't describe" style="max-width:200px; max-height:100px">

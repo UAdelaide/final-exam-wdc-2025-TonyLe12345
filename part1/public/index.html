@@ -112,12 +112,11 @@
     createApp({
       data() {
         return {
-            dogPicture: '',
-            currentUserName: 'Alice Johnson',
-            items: [],
-            selectedItem: null,
-            messageText: '',
-            messages: []
+          currentUserName: 'Alice Johnson',
+          items: [],
+          selectedItem: null,
+          messageText: '',
+          messages: []
         };
       },
       async mounted() {
@@ -130,9 +129,7 @@
       methods: {
         async sendMessage() {
           try {
-            const res = await fetch("https://dog.ceo/api/breeds/image/random");
-            const data = await res.json();
-            this.dogPicture = data.message;
+            const res = await fetch();
           }
         async getDog() {
 

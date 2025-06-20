@@ -11,6 +11,20 @@
 
   <div id="app" class="container py-5">
     <h1 class="mb-4 text-primary">{{ message }}</h1>
+    <form onsubmit="return handleLogin(event)">
+      <label for="Username">Username</label>
+      <input type="text" id="username" required pattern="^[a-zA-Z0-9_.-]{3,50}$" />
+      <!-- only allow letters, numbers, underscores, periods, and hyphens (and between 3 to 50 characters) -->
+
+      <label for="Password">Password</label>
+      <!-- password wrapper to include toggle button-->
+      <div class="password-wrapper">
+        <input type="password" id="password" required />
+        <button type="button" id="togglePasswordButton" onclick="togglePassword()">Show</button>
+      </div>
+
+      <button type="submit" id="loginButton">Login</button>
+    </form>
     <p class="lead">Connect with trusted walkers for your beloved dog!</p>
 
     <a href="owner-dashboard.html" class="btn btn-outline-primary me-2">Owner Dashboard</a>

@@ -122,8 +122,9 @@
               credentials: 'include',
             });
             if (!res.ok) throw new Error('Failed to fetch dogs');
-            
+
             const result = await res.json();
+            dogs.value = result;
           } catch (err) {
             error.value = err.message;
           }

@@ -100,7 +100,12 @@
             },
 
             async dogData() {
-              
+              try {
+            const res = await fetch('/api/dogs');
+            walks.value = await res.json();
+              } catch (err) {
+            error.value = 'Failed to load walk requests';
+              }
 
               const res = await fetch('/api/dogs', {
                   method: 'GET',

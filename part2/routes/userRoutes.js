@@ -68,7 +68,7 @@ router.post('/dogs', async (req, res) => {
       'SELECT name FROM Dogs WHERE owner_id = ?'
     `, [session.user_id]);
 
-    res.status(201).json({ message: 'User registered', user_id: result.insertId });
+    res.status(201).json({ message: result });
   } catch (error) {
     res.status(500).json({ error: 'Registration failed' });
   }

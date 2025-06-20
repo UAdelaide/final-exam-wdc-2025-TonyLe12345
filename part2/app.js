@@ -5,7 +5,7 @@ require('dotenv').config();
 var cors = require('cors');
 
 const app = express();
-var loginRouter = require('./routes/login');
+const loginRouter = require('./routes/login');
 
 // Middleware
 app.use(express.json());
@@ -30,6 +30,7 @@ app.use(session({
 const walkRoutes = require('./routes/walkRoutes');
 const userRoutes = require('./routes/userRoutes');
 
+app.use('/', loginRouter);
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
 

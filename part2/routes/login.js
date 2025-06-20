@@ -22,7 +22,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
-router.post('/logout', function (req, res) {
+router.post('/logOut', function (req, res) {
   req.session.destroy(() => {
     res.json({ message: 'Logged out' });
   });

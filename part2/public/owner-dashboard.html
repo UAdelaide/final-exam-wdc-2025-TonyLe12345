@@ -20,7 +20,7 @@
         <form @submit.prevent="submitWalkRequest">
           <div class="mb-3">
             <label class="form-label">Select Your Dog</label>
-            <select v-model="form.dog_id" class="form-control" required>
+            <select v-model="form.dog_Name" class="form-control" required>
               <option disabled value="">Select Your Dog</option>
               <option v-for="dog in dogs" :key="dog.name">
                 {{ dog.name }}
@@ -110,7 +110,7 @@
             message.value = result.message;
             error.value = '';
             form.value = {
-              dog_id: '',
+              dog_Name: '',
               requested_time: '',
               duration_minutes: '',
               location: ''

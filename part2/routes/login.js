@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
   }
 
   if (req.session.user.role === 'admin') {
-    return res.redirect('/owner');
+    return res.redirect('/api/walks');
   }
 
   if (req.session.user.role === 'admin') {

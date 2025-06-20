@@ -8,11 +8,11 @@ router.get('/', async (req, res) => {
   }
 
   if (req.session.user.role === 'walker') {
-    return res.redirect('/api/walks');
+    return res.redirect('/walker-dashboard.html');
   }
 
   if (req.session.user.role === 'owner') {
-    return res.redirect('/workspaces/final-exam-wdc-2025-TonyLe12345/part2/public/owner-dashboard.html');
+    return res.redirect('/owner-dashboard.html');
   }
 });
 

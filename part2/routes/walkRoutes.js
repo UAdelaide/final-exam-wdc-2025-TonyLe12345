@@ -4,7 +4,7 @@ const db = require('../models/db');
 
 router.use(function(req, res, next) {
   
-}
+  next();
 });
 
 // GET all walk requests (for walkers to view)

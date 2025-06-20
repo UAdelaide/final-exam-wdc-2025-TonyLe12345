@@ -31,6 +31,33 @@
         return {
           message: 'Welcome to the Dog Walking Service!'
         };
+      },
+      methods: {
+            async login() {
+      try {
+        const res = await fetch('http://localhost:3000/login', {
+          method: 'POST',
+          credentials: 'include', // send cookies for session
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            username: this.username,
+            password: this.password
+          })
+        });
+
+        const data = await res.json();
+        if (res.ok) {
+          alert(data.message); // "Login successful!"
+        } else {
+          alert(data.message || 'Login failed');
+        }
+      } catch (err) {
+        console.error('Fetch error:', err);
+        alert('Error logging in');
+      }
+    }
       }
     }).mount('#app');
   </script>

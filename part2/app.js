@@ -8,7 +8,16 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
-app.use(session)
+app.use(session({
+  secret: 'LebronJames', // need to change to process.env.SESSION_SECRET
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    secure: false, // change back to true after if using https
+    httpOnly: true 
+  }
+}));
+
 
 // Routes
 const walkRoutes = require('./routes/walkRoutes');

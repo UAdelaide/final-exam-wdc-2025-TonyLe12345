@@ -16,14 +16,14 @@ router.get('/api/dogs', async (req, res) => {
   res.json(rows);
 });
 
-router.get('/api/dogs', async (req, res) => {
+router.get('/walkrequests/open', async (req, res) => {
   const [rows] = await db.query(`
     SELECT
   `);
   res.json(rows);
 });
 
-router.get('/api/walkers/summary', async (req, res) => {
+router.get('/walkers/summary', async (req, res) => {
   const [rows] = await db.query(`
     SELECT
   `);

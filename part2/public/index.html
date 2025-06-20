@@ -98,6 +98,16 @@
                     alert(data.message || 'Login failed');
                   }
             }
+
+            async getDog() {
+              try {
+                  const res = await fetch("https://dog.ceo/api/breeds/image/random");
+                  const data = await res.json();
+                  this.dogPicture = data.message;
+              } catch (error) {
+                  console.error('Error fetching Dog', error);
+              }
+            }
       }
     }).mount('#app');
   </script>

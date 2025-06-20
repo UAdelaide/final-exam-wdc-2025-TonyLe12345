@@ -74,12 +74,5 @@ router.get('/dogs', async (req, res) => {
   }
 });
 
-router.get('/dogs', async (req, res) => {
-  if(!req.session.user) {
-    return res.status(401).json({ error: 'Not logged in' });
-  }
-  res.status(201).json({ walkerID: req.session.user.user_id });
-});
-
 
 module.exports = router;

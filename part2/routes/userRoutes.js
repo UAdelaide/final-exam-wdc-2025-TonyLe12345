@@ -62,4 +62,19 @@ router.post('/login', async (req, res) => {
   }
 });
 
+router.post('/register', async (req, res) => {
+  const { username, email, password, role } = req.body;
+
+  try {
+    const [result] = await db.query(`
+      INSERT INTO Users (username, email, password_hash, role)
+      VALUES (?, ?, ?, ?)
+    `, [username, email, password, role]);
+
+    res.status(201).json({ message: 'User registered', user_id: result.insertId });
+  } catch (error) {
+    res.status(500).json({ error: 'Registration failed' });
+  }
+});
+
 module.exports = router;

@@ -124,7 +124,9 @@
               try {
                 const res = await fetch('/api/dogs');
                 this.dogs = await res.json();
-                for (const dog of this.dog)
+                for (const dog of this.dog) {
+                  
+                }
               } catch (err) {
                 error.value = 'Failed to load requests';
               }

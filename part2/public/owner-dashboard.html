@@ -124,7 +124,7 @@
 
         async function getDogs() {
           try {
-            const res = await fetch('/api/walks/dogs', {
+            const res = await fetch('/api/users/dogs', {
               credentials: 'include',
             });
             if (!res.ok) throw new Error('Failed to fetch dogs');

@@ -8,8 +8,9 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
+
 app.use(session({
-  secret: 'LebronJames', 
+  secret: 'LebronJames',
   resave: false,
   saveUninitialized: false,
   cookie: {

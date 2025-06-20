@@ -7,12 +7,12 @@ router.get('/', async (req, res) => {
     return res.redirect('/');
   }
 
-  if (req.session.user.role === 'admin') {
+  if (req.session.user.role === 'walks') {
     return res.redirect('/api/walks');
   }
 
-  if (req.session.user.role === 'admin') {
-    return res.redirect('/owner');
+  if (req.session.user.role === 'users') {
+    return res.redirect('/api/users');
   }
 });
 

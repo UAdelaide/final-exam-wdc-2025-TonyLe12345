@@ -35,6 +35,17 @@
         };
       },
       methods: {
+            const fetchUser = async () => {
+          const res = await fetch('/me', { credentials: 'include' });
+          const data = await res.json();
+          sessionUser.value = data.sessionUser;
+          cookieName.value = data.cookieName;
+          if (data.expiresAt) {
+            startCountdown(data.expiresAt);
+          } else {
+            timeLeft.value = null;
+          }
+        };
             async login() {
               const res = await fetch('/login', {
                   method: 'POST',

@@ -50,7 +50,7 @@ router.get('/api/walkers/summary', async (req, res) => {
         SELECT
         Users.username AS walker_username,
         COUNT(WalkRatings.walker_id) AS total_ratings,
-        AVG(WalkRatings.rating) AS average_rating
+        AVG(WalkRatings.rating) AS average_rating,
         COUNT(DISTINCT WalkRatings.request_id) AS completed_walks
         FROM WalkRequests
         JOIN WalkRatings
@@ -58,7 +58,7 @@ router.get('/api/walkers/summary', async (req, res) => {
         JOIN Users
         ON WalkRatings.walker_id = Users.user_id
         WHERE Users.role = 'walker' AND WalkRequests.status = 'completed'
-        GROUP BY User.user_id, Users.username;
+        GROUP BY Users.user_id, Users.username;
     `);
     res.json(rows);
   } catch (error) {

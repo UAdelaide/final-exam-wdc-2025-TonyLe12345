@@ -53,12 +53,12 @@ router.get('/api/walkers/summary', async (req, res) => {
         AVG(WalkRatings.rating) AS average_rating
         COUNT(DISTINCT WalkRatings.request_id) AS completed_walks
         FROM Users
-        JOIN WalkRequests
-        ON WalkApplications.request_id = WalkRequests.request_id
-        AND WalkRequests.status = 'completed'
         LEFT JOIN WalkRatings
         ON WalkRequests.request_id = WalkRatings.request_id
         AND WalkRatings.walker_id = Users.user_id
+        JOIN WalkRequests
+        ON WalkApplications.request_id = WalkRequests.request_id
+        AND WalkRequests.status = 'completed'
         WHERE Users.role = 'walker'
         GROUP BY Users.username;
     `);

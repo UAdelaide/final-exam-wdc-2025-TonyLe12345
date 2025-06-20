@@ -2,6 +2,13 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models/db');
 
+router.use(function(req, res, next) {
+  if (!req.session.user && req.session.role != "walker") {
+    return res.redirect('/');
+  }
+  next();
+});
+
 // GET all users (for admin/testing)
 router.get('/', async (req, res) => {
   try {

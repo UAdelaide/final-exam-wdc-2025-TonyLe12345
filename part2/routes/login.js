@@ -7,11 +7,11 @@ router.get('/', async (req, res) => {
     return res.redirect('/');
   }
 
-  if (req.session.user.role === 'walk') {
+  if (req.session.user.role === 'walker') {
     return res.redirect('/api/walks');
   }
 
-  if (req.session.user.role === 'users') {
+  if (req.session.user.role === 'owner') {
     return res.redirect('/api/users');
   }
 });

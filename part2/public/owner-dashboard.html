@@ -119,6 +119,7 @@
         async function getDogs() {
           try {
             const res = await fetch('/api/walks/dogs', {
+              credentials: 'include',
             });
             const result = await res.json();
           } catch (err) {

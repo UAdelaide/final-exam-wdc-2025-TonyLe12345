@@ -7,7 +7,6 @@ var cors = require('cors');
 const app = express();
 const loginRouter = require('./routes/login');
 
-// Middleware
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(cors({

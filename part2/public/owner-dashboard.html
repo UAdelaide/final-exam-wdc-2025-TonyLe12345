@@ -116,6 +116,20 @@
           }
         }
 
+        async function logOut() {
+            const res = await fetch('/logOut', {
+                method: 'POST',
+                credentials: 'include', // send cookies for session
+                headers: { 'Content-Type': 'application/json' },
+              });
+            const data = await res.json();
+              if (res.ok) {
+                window.location.href = '/index.html';
+              } else {
+                alert(data.message || 'LogOut failed');
+              }
+        }
+
         onMounted(() => {
           loadWalks();
         });

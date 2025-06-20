@@ -4,7 +4,7 @@ const db = require('../models/db');
 
 router.use(function(req, res, next) {
   if (!req.session.user && req.session.role != "owner") {
-    return res.redirect('/');
+    return res.status(401).json({ error: 'Not logged in' });
   }
   next();
 });

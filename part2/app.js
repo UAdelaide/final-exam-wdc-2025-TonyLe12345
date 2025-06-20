@@ -5,6 +5,7 @@ require('dotenv').config();
 var cors = require('cors');
 
 const app = express();
+var indexRouter = require('./routes/index');
 
 // Middleware
 app.use(express.json());

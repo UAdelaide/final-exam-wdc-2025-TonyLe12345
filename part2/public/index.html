@@ -100,11 +100,7 @@
             },
 
             async dogData() {
-              const res = await fetch('/api/dogs', {
-                  method: 'GET',
-                  headers: { 'Content-Type': 'application/json' },
-                });
-
+              const res = await fetch('/api/dogs');
               const data = await res.json();
                   if (res.ok) {
                     if (data.role === 'owner') {

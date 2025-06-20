@@ -2,19 +2,23 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models/db');
 
-router.get('/', async (req, res) => {
-  if (!req.session.user) {
-    return res.redirect('/index.html');
-  }
+router.post('/login', async (req, res) => {
+  const { email, password } = req.body;
 
-  if (req.session.user.role === 'walker') {
-    return res.redirect('/walker-dashboard.html');
-  }
+  try {
+    const [rows] = await db.query(`
+      SELECT user_id, username, role FROM Users
+      WHERE email = ? AND password_hash = ?
+    `, [email, password]);
 
-  if (req.session.user.role === 'owner') {
-    return res.redirect('/owner-dashboard.html');
+    if (rows.length === 0) {
+      return res.status(401).json({ error: 'Invalid credentials' });
+    }
+
+    res.json({ message: 'Login successful', user: rows[0] });
+  } catch (error) {
+    res.status(500).json({ error: 'Login failed' });
   }
-  return res.redirect('/index.html');
 });
 
 module.exports = router;

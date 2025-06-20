@@ -140,8 +140,9 @@
             const data = await res.json();
             this.dogPicture = data.message;
             } catch (error) {
-                
+                console.error(
             }
+
         }
       }
     }).mount('#app');

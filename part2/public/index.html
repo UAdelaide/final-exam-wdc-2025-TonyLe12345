@@ -44,12 +44,17 @@
                   body: JSON.stringify({ username: this.username, password: this.password })
                 });
 
-                const data = await res.json();
-                if (res.ok) {
-                  fetchUser();
-                } else {
-                  alert(data.message || 'Login failed');
-                }
+              const data = await res.json();
+                  if (res.ok) {
+                    // Redirect based on user role
+                    if (data.role === 'owner') {
+                      window.location.href = '/owner-dashboard.html';
+                    } else if (data.role === 'walker') {
+                      window.location.href = '/walker-dashboard.html';
+                    }
+                  } else {
+                    alert(data.message || 'Login failed');
+                  }
             }
       }
     }).mount('#app');

@@ -75,7 +75,9 @@ router.get('/dogs', async (req, res) => {
 });
 
 router.get('/dogs', async (req, res) => {
-  if()
+  if(!req.session) {
+    
+  }
 });
 
 

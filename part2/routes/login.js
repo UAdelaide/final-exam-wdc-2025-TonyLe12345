@@ -35,7 +35,8 @@ router.get('/api/dogs', async (req, res) => {
         Dogs.dog_id,
         Dogs.name AS dog_name,
         Dogs.size,
-        Users.username AS owner_id
+        Dogs.owner_id,
+        Users.username AS owner_username
         FROM
         Dogs
         JOIN

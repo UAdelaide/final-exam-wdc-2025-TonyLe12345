@@ -73,7 +73,8 @@
             error.value = err.message;
             message.value = '';
           }
-        },
+        }
+        
         async function logOut() {
             const res = await fetch('/logOut', {
                 method: 'POST',
@@ -82,8 +83,7 @@
               });
 
                 if (res.ok) {
-                    window.location.href = '/walker-dashboard.html';
-                  }
+                  window.location.href = '/index.html';
                 } else {
                   alert(data.message || 'LogOut failed');
                 }

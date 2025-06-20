@@ -62,9 +62,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
-router.post('/register', async (req, res) => {
-  const { username, email, password, role } = req.body;
-
+router.post('/dogs', async (req, res) => {
   try {
     const [result] = await db.query(`
       INSERT INTO Users (username, email, password_hash, role)

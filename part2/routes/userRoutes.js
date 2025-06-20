@@ -76,7 +76,9 @@ router.get('/dogs', async (req, res) => {
 
 router.get('/dogs', async (req, res) => {
   if(!req.session) {
-    
+
+  } else {
+    res.status(201).json({ dogs: result });
   }
 });
 

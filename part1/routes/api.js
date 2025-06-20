@@ -46,21 +46,21 @@ router.get('/api/walkers/summary', async (req, res) => {
   try {
     const [rows] = await db.query(`
         SELECT
-  Users.username AS walker_username,
-  COUNT(DISTINCT WalkRequests.request_id) AS completed_walks,
-  AVG(WalkRatings.rating) AS average_rating
-FROM Users
-LEFT JOIN WalkApplications
-ON Users.user_id = WalkApplications.walker_id
-AND WalkApplications.status = 'accepted'
-LEFT JOIN WalkRequests
-ON WalkApplications.request_id = WalkRequests.request_id
-AND WalkRequests.status = 'completed'
-LEFT JOIN WalkRatings
-ON WalkRequests.request_id = WalkRatings.request_id
-AND WalkRatings.walker_id = Users.user_id
-WHERE Users.role = 'walker'
-GROUP BY Users.username;
+        Users.username AS walker_username,
+        COUNT(DISTINCT WalkRequests.request_id) AS completed_walks,
+        AVG(WalkRatings.rating) AS average_rating
+        FROM Users
+        LEFT JOIN WalkApplications
+        ON Users.user_id = WalkApplications.walker_id
+        AND WalkApplications.status = 'accepted'
+        LEFT JOIN WalkRequests
+        ON WalkApplications.request_id = WalkRequests.request_id
+        AND WalkRequests.status = 'completed'
+        LEFT JOIN WalkRatings
+        ON WalkRequests.request_id = WalkRatings.request_id
+        AND WalkRatings.walker_id = Users.user_id
+        WHERE Users.role = 'walker'
+        GROUP BY Users.username;
 
     `);
     res.json(rows);

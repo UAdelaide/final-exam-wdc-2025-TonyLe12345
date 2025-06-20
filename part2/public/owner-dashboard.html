@@ -132,7 +132,7 @@
             if (!res.ok) throw new Error('Failed to fetch dogs');
 
             const result = await res.json();
-            dogs.value = result;
+            dogs.value = result.dogs;
           } catch (err) {
             error.value = err.message;
           }
@@ -154,6 +154,7 @@
 
         onMounted(() => {
           loadWalks();
+          getDogs(); 
         });
 
         return {

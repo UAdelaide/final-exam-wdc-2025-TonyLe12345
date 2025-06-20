@@ -2,8 +2,7 @@ const mysql = require('mysql2/promise');
 
 const db = mysql.createPool({
   user: 'root',
-  password: 'newpassword',
-  database: 'textbook_marketplace'
+  database: 'DogWalkService'
 });
 
 module.exports = db;

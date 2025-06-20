@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var db = require('../db');
 
-router.get('/api/dogs', async (req, res) => {
+router.get('/dogs', async (req, res) => {
   const [rows] = await db.query(`
     SELECT
     Dogs.name AS dog_name,

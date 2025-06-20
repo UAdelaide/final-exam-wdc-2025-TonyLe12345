@@ -73,9 +73,9 @@
           <tbody>
             <tr v-for="dog in dogs" :key="dog.dog_id">
               <td>{{ dog.dog_id }}</td>
-              <td>{{ dog.name }}</td>
+              <td>{{ dog.do_name }}</td>
               <td>{{ dog.breed }}</td>
-              <td>{{ dog.size }}</td>
+              <td>{{ dog.owner_id }}</td>
               <td><img v-bind:src="dogPicture" "getDog" alt="Dog Image"></td>
             </tr>
           </tbody>

@@ -82,11 +82,11 @@
                 headers: { 'Content-Type': 'application/json' },
               });
             const data = await res.json();
-                if (res.ok) {
-                  window.location.href = '/index.html';
-                } else {
-                  alert(data.message || 'LogOut failed');
-                }
+              if (res.ok) {
+                window.location.href = '/index.html';
+              } else {
+                alert(data.message || 'LogOut failed');
+              }
         }
 
         onMounted(() => {

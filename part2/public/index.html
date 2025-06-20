@@ -75,6 +75,7 @@
           message: 'Welcome to the Dog Walking Service!',
           username:'',
           password:'',
+          dogPicture: '',
           dogs:[]
         };
       },
@@ -83,7 +84,7 @@
             async login() {
               const res = await fetch('/login', {
                   method: 'POST',
-                  credentials: 'include', 
+                  credentials: 'include',
                   headers: { 'Content-Type': 'application/json' },
                   body: JSON.stringify({ username: this.username, password: this.password })
                 });
@@ -104,6 +105,7 @@
               try {
                 const res = await fetch('/api/dogs');
                 const data = await res.json();
+                
 
               } catch (err) {
                 error.value = 'Failed to load walk requests';

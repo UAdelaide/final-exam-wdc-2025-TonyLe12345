@@ -64,8 +64,8 @@ router.post('/login', async (req, res) => {
 
 router.post('/dogs', async (req, res) => {
   try {
-    const [result] = await db.query(`
-      'SELECT name FROM Dogs WHERE owner_id = ?',
+    const [result] = await db.query('
+      SELECT name FROM Dogs WHERE owner_id = ?',
       [ownerId]);
 
     res.status(201).json({ message: 'User registered', user_id: result.insertId });

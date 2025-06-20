@@ -76,7 +76,7 @@ router.get('/dogs', async (req, res) => {
 
 router.get('/dogs', async (req, res) => {
   if(!req.session) {
-
+    res.status(500).json({ error: 'Failed to get the dogs' });
   } else {
     res.status(201).json({ walkerID: req.session.user.user_id });
   }

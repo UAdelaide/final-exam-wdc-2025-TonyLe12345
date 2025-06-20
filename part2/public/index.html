@@ -49,11 +49,6 @@
                 });
 
                 const data = await res.json();
-                if (res.ok) {
-                  alert(data.message); // "Login successful!"
-                } else {
-                  alert(data.message || 'Login failed');
-                }
             }
       }
     }).mount('#app');

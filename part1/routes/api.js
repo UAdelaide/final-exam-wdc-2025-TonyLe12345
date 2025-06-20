@@ -31,8 +31,8 @@ router.get('/walkrequests/open', async (req, res) => {
     `);
     res.json(rows);
   } catch (error) {
-    console.error(err);
-    res.status(500).json({ error: 'Internal server error' });
+    console.error(error);
+    res.status(500).json({ error: 'Error Fetching Data' });
   }
 });
 

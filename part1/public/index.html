@@ -128,12 +128,6 @@
         this.messages = await messagesRes.json();
       },
       methods: {
-        async sendMessage() {
-          try {
-            const res = await fetch("https://dog.ceo/api/breeds/image/random");
-            const data = await res.json();
-            this.dogPicture = data.message;
-          }
         async getDog() {
             try {
                 const res = await fetch("https://dog.ceo/api/breeds/image/random");

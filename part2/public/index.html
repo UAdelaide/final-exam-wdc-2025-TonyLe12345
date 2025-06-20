@@ -36,8 +36,7 @@
       },
       methods: {
             async login() {
-              try {
-                const res = await fetch('/login', {
+              const res = await fetch('/login', {
                   method: 'POST',
                   credentials: 'include', // send cookies for session
                   headers: {
@@ -55,10 +54,6 @@
                 } else {
                   alert(data.message || 'Login failed');
                 }
-              } catch (err) {
-                console.error('Fetch error:', err);
-                alert('Error logging in');
-              }
             }
       }
     }).mount('#app');

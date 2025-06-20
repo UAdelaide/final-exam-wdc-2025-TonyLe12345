@@ -128,17 +128,9 @@
       },
       methods: {
         async sendMessage() {
-          if (!this.selectedItem.BookID || !this.messageText.trim()) {
-            return alert('Please select a book and enter a message.');
+          try {
+            
           }
-          await fetch('/api/messages', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ bookID: this.selectedItem.BookID, sellerID: this.selectedItem.SellerID, message: this.messageText })
-          });
-          alert('Message sent!');
-          this.messageText = '';
-        }
         async getDog() {
 
         }

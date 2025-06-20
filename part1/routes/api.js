@@ -61,7 +61,6 @@ router.get('/api/walkers/summary', async (req, res) => {
         AND WalkRatings.walker_id = Users.user_id
         WHERE Users.role = 'walker'
         GROUP BY Users.username;
-
     `);
     res.json(rows);
   } catch (error) {

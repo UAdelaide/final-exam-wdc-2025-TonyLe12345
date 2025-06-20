@@ -104,20 +104,11 @@
                 const res = await fetch('/api/dogs');
                 walks.value = await res.json();
               } catch (err) {
-            error.value = 'Failed to load walk requests';
+                error.value = 'Failed to load walk requests';
               }
 
 
               const data = await res.json();
-                  if (res.ok) {
-                    if (data.role === 'owner') {
-                      window.location.href = '/owner-dashboard.html';
-                    } else if (data.role === 'walker') {
-                      window.location.href = '/walker-dashboard.html';
-                    }
-                  } else {
-                    alert(data.message || 'Login failed');
-                  }
             },
 
             async getDog() {

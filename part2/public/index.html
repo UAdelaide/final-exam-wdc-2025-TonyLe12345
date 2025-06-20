@@ -124,9 +124,9 @@
               try {
                 const res = await fetch('/api/dogs');
                 this.dogs = await res.json();
-
+                for (const dog)
               } catch (err) {
-                error.value = 'Failed to load walk requests';
+                error.value = 'Failed to load requests';
               }
             },
 

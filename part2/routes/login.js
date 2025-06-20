@@ -11,10 +11,9 @@ router.get('/', async (req, res) => {
     return res.redirect('/owner');
   }
 
-  res.render('dashboard', {
-    user: req.session.user,
-    available_funds: req.session.user.available_funds
-  });
+  if (req.session.user.role === 'admin') {
+    return res.redirect('/owner');
+  }
 });
 
 module.exports = router;

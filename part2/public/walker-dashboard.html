@@ -93,8 +93,8 @@
           try {
             const res = await fetch('/api/users/me');
             if (!res.ok) throw new Error('Failed to get user id');
-            const data = 
-            user.value = await res.json().user_id;
+            const data = await res.json()
+            user.value = data.user_id;
           } catch (err) {
             error.value = err.message;
           }
@@ -111,6 +111,7 @@
           error,
           applyToWalk,
           logOut,
+          user
         };
       }
     }).mount('#app');

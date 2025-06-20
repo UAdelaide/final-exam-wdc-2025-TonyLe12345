@@ -38,12 +38,18 @@
             async login() {
               const res = await fetch('/login', {
                   method: 'POST',
-                  credentials: 'include',
+                  credentials: 'include', // send cookies for session
                   headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify({ username: this.username, password: this.password })
+                  body: JSON.stringify({ username: this.username, password: this.password
+                  })
                 });
-              const data = await res.json();
-              fetch
+
+                const data = await res.json();
+                if (res.ok) {
+                  alert(data.message); // "Login successful!"
+                } else {
+                  alert(data.message || 'Login failed');
+                }
             }
       }
     }).mount('#app');

@@ -76,7 +76,7 @@
     createApp({
       setup() {
         const form = ref({
-          selectedDog: 
+          selectedDog: '',
           dog_id: '',
           requested_time: '',
           duration_minutes: '',
@@ -87,7 +87,6 @@
         const message = ref('');
         const error = ref('');
         const dogs = ref([]);
-        const selectedDog = ref('');
 
         async function loadWalks() {
           try {
@@ -164,8 +163,7 @@
           error,
           submitWalkRequest,
           logOut,
-          dogs,
-          selectedDog
+          dogs
         };
       }
     }).mount('#app');

@@ -116,6 +116,14 @@
                     alert(data.message || 'Login failed');
                   }
             },
+            async function loadWalks() {
+          try {
+            const res = await fetch('/api/walks');
+            walks.value = await res.json();
+          } catch (err) {
+            error.value = 'Failed to load walk requests';
+          }
+        }
 
             async getDog() {
               try {

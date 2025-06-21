@@ -57,7 +57,7 @@ router.get('/walkers/summary', async (req, res) => {
         ON Users.user_id = WalkApplications.walker_id
         LEFT JOIN WalkRequests
         ON WalkApplications.request_id = WalkRequests.request_id
-        AND WalkRequests.status = 'completed'
+        AND WalkApplications.status = 'completed'
         LEFT JOIN WalkRatings
         ON WalkRequests.request_id = WalkRatings.request_id
         WHERE Users.role = 'walker'
